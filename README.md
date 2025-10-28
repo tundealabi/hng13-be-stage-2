@@ -18,13 +18,21 @@ git clone https://github.com/tundealabi/hng13-be-stage-2.git
 cd hng13-be-stage-2
 ```
 
-3. Install the dependencies:
+3. Add ENVs:
+
+```bash
+cp .env.example .env
+```
+
+Then, update the `.env` file with your desired configuration values.
+
+4. Install the dependencies:
 
 ```bash
 yarn
 ```
 
-4. Start the Node JS server:
+5. Start the Node JS server:
 
 ```bash
 npm start | yarn start

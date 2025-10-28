@@ -1,5 +1,4 @@
 import fetch from 'node-fetch';
-import pool from '../db.mjs';
 import dotenv from 'dotenv';
 import fs from 'fs/promises';
 import path from 'path';

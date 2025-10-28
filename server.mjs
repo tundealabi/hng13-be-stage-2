@@ -1,7 +1,8 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import countriesRouter from './routes/countries.route.mjs';
-import pool from './db.mjs';
+import pool from './db/db.mjs';
+import initDB from './db/init.mjs';
 
 dotenv.config();
 
@@ -43,9 +44,20 @@ app.use((err, req, res, next) => {
 });
 
 // -------------------- Start server --------------------
-const PORT = process.env.PORT || 4300;
-app.listen(PORT, () =>
-  console.log(
-    `🚀 Country Currency & Exchange API running on http://localhost:${PORT}`
-  )
-);
+// ✅ Ensure DB schema is initialized before starting server
+initDB()
+  .then(() => {
+    console.log('✅ Database schema initialized');
+
+    // Only start the server after DB is ready
+    const PORT = process.env.PORT || 4300;
+    app.listen(PORT, () =>
+      console.log(
+        `🚀 Country Currency & Exchange API running on http://localhost:${PORT}`
+      )
+    );
+  })
+  .catch((err) => {
+    console.error('❌ Failed to initialize database schema:', err);
+    process.exit(1); // prevent server from running if DB setup fails
+  });

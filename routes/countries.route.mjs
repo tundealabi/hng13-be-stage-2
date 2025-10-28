@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import express from 'express';
-import pool from '../db.mjs';
+import pool from '../db/db.mjs';
 import {
   fetchExternalData,
   pickCurrencyCode,
