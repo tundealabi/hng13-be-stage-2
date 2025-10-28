@@ -1,0 +1,19 @@
+{
+  "name": "hng13-be-stage-2",
+  "version": "1.0.0",
+  "description": "HNG 13 Stage 2 Backend - Build a RESTful API that fetches country data from an external API, stores it in a database, and provides CRUD operations",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mysql2": "^3.15.3",
+    "node-fetch": "^3.3.2",
+    "sharp": "^0.34.4"
+  }
+}
